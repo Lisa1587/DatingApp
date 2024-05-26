@@ -55,6 +55,11 @@ public class UserRepository : IUserRepository
             .SingleOrDefaultAsync(x => x.UserName == username);
     }
 
+    public Task<IEnumerable<AppUser>> GetUsersAsync()
+    {
+        throw new NotImplementedException();
+    }
+
     public async Task<bool> SaveAllAsync()
     {
         return await _context.SaveChangesAsync() > 0;
