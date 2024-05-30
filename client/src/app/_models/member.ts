@@ -1,4 +1,5 @@
-import { Photo } from "./photo";
+import { Photo } from "../_modules/photo";
+
 
    export interface Member {
     id: number;

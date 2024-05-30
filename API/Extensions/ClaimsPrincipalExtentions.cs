@@ -10,9 +10,9 @@ public static class ClaimsPrincipalExtentions
 
     }
 
-    public static string GetUseId(this ClaimsPrincipal user)
+    public static int GetUserId(this ClaimsPrincipal user)
     {
-        return user.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+        return int.Parse (user.FindFirst(ClaimTypes.NameIdentifier)?.Value);
         
     }
 }
