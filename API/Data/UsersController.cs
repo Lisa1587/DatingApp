@@ -49,6 +49,7 @@ public class UsersController : BaseApiController
         
     }
 
+    
     [HttpGet("{username}")]
     public async Task<ActionResult<MemberDto>> GetUser(string username)
     {
