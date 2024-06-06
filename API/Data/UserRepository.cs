@@ -74,14 +74,17 @@ public class UserRepository : IUserRepository
             .SingleOrDefaultAsync(x => x.UserName == username);
     }
 
-    public Task<IEnumerable<AppUser>> GetUsersAsync()
+    public async Task<string> GetUserGender(string username)
+    {
+        return await _context.Users
+            .Where(x => x.UserName == username)
+            .Select(x => x.Gender).FirstOrDefaultAsync();
+    }   
+
+    public Task<IEnumerable<AppUser>> GetUsersAsync() // code? 
     {
         throw new NotImplementedException();
-    }
-
-    public async Task<bool> SaveAllAsync()
-    {
-        return await _context.SaveChangesAsync() > 0;
+        //return await _context.Users.ToListAsync();
     }
 
     public void Update(AppUser user)
