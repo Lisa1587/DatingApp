@@ -1,0 +1,29 @@
+# fly.toml app configuration file generated for datingappx on 2024-06-14T09:21:51+02:00
+#
+# See https://fly.io/docs/reference/configuration/ for information about how to use this file.
+#
+
+app = 'datingappx'
+primary_region = 'jnb'
+
+[build]
+  image = 'lisae/datingapp:latest'
+
+[env]
+  DATABASE_URL= "postgres://postgres:yyNuXxummkZlyIj@datingappz.internal:5432/datingappz"
+  ASPNETCORE_URLS="http://+:8080"
+  CloudinarySettings__CloudName="dxtfvfibq"
+  CloudinarySettings__ApiKey="874172135479837"
+
+[http_service]
+  internal_port = 8080
+  force_https = true
+  auto_stop_machines = true
+  auto_start_machines = true
+  min_machines_running = 0
+  processes = ['app']
+
+[[vm]]
+  memory = '1gb'
+  cpu_kind = 'shared'
+  cpus = 1
